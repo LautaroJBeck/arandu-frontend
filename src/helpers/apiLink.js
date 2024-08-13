@@ -1,4 +1,4 @@
 
 
-const apiLink=`https://arandu-backend-production.up.railway.app/api`
+const apiLink=import.meta.env.VITE_API
 export default apiLink
