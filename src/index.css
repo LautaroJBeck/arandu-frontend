@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter",sans-serif;
+  box-sizing: border-box;
+  }
+  body{
+    overflow-x: hidden;
+  }
+  html{
+    scroll-behavior: smooth;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  :root{
+    --azul:#031926;
+    --verde:rgb(70, 129, 137);  
+    --verde-claro:rgb(93, 211, 227);
+
+    --verde-claro2:#52afbb;
+    --negro:rgb(34,34,34);
+    --blanco:#fafafa;
+    --naranja:#BA2D0B;
+    --rojo:#A31621;
+    --gris:rgba(33, 36, 44, 0.64);
+    --gris-barra:rgb(192,192,192);
+    --gris-claro:rgba(33, 36, 44, 0.08);
+    --gris-oscuro:rgb(33, 36, 44);
+    --celeste:#0dc8f0;
+
+    --blanco-oscuro:rgb(248,248,248);
+    --negro-claro:rgb(38,38,38);
+
+    --fuente-pequeña:16px;
+    --fuente-mediana:20px;
+
+    --fuente-mediana2:25px;
+    --fuente-grande:30px;
+    --fuente-grande2:35px;
+
+
+    --tamaño-titulo:24px;
+    --tamaño-links:18px;
+
+    --margin-pequeño:10px;
+    --margin-mediano:20px;
+
+    --padding-grande:20px;
+    --padding-mediano:10px;
+
+
+    --fuente-grande-mobile:24px;
+    --fuente-mediana-mobile:20px;
+    --fuente-pequeña-mobile:16px;
+    --transition-pequeña:.3s;
+    --transition-grande:.5s;
+    
+    --max-width:1500px;
+}

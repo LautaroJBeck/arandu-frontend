@@ -1,0 +1,619 @@
+main {
+  width: 100%;
+}
+
+.primer-slide {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  font-family: "Inter", sans-serif;
+  padding:10rem 5%;
+  position: relative;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.primer-text-container {
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  z-index: 30; /* Asegura que el contenedor de texto esté por encima de la bandera */
+}
+
+.primer-text-container h2 {
+  font-size: 50px;
+  color: rgb(0, 0, 0);
+  position: relative;
+  z-index: 40; /* Asegura que el h2 esté por encima del contenedor de texto */
+}
+
+.primer-bandera-paraguay {
+  z-index: 10;
+  position: absolute;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+  top: 8px;
+
+}
+@keyframes crecerBandera {
+  0% {
+    transform: scaleX(0); /* Inicialmente la bandera no se muestra */
+  }
+  100% {
+    transform: scaleX(1); /* La bandera crece hasta su tamaño completo */
+  }
+}
+
+.cuadrado-rojo,
+.cuadrado-blanco,
+.cuadrado-azul {
+  height: 45px;
+  position: relative;
+  margin-bottom: 15px;
+  animation: crecerBandera 3s forwards; /* Aplica la animación a la bandera */
+  transform-origin: right;
+}
+
+.cuadrado-rojo {
+  background-color: #ee3837;
+  width: 190px;
+  z-index: 10;
+}
+
+.cuadrado-blanco {
+  background-color: #ffffff;
+  border: 2px solid #0963b9;
+  width: 160px;
+  z-index: 10;
+}
+
+.cuadrado-azul {
+  background-color: #0963b9;
+  width: 130px;
+  z-index: 10;
+}
+.primer-text-link{
+  text-decoration: underline;
+  font-weight: 700;
+  color:#0963b9
+}
+.primer-text-parrafos-container {
+  width: 400px;
+  padding: 16px;
+  font-size: 18px;
+  line-height: 26px;
+}
+.primer-button-container a{
+  padding:10px;
+  border-radius: 5px;
+  border:1px solid black;
+  color:rgb(255,255,255);
+  font-weight: 700;
+  font-size: 16px;
+  background-color: var(--verde);
+  margin-right: 16px;
+}
+.primer-beneficios-container{
+  display:flex;
+
+}
+.primer-beneficios-container div {
+  display:flex;
+  margin-right: 1rem;
+  align-items: center;
+  margin-top: 16px;
+}
+.primer-beneficios-container div:last-child{
+  margin-right: 0;
+}
+.primer-beneficios-container div i{
+  font-size: 22px;
+  width:45px;
+  height:45px;
+  background-color:var(--azul);
+  color:rgb(255,255,255);
+  border-radius: 5px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+.primer-beneficios-container div span{
+  font-size: 18px;
+}
+.primer-image-container{
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+}
+.primer-image-container img{
+  max-width: 600px;
+  width: 100%;
+  display:block
+}
+
+/* SEGUNDO SLIDE */
+.segundo-slide{
+  border:1px solid black;
+  display:flex;
+}
+.segundo-beneficios{
+  flex: 1;
+  border-right: 1px solid black;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding:1rem;
+}
+.segundo-beneficios img{
+  max-width:150px;
+}
+.segundo-beneficios i{
+  font-size: 100px;
+}
+.segundo-beneficios h4{
+  font-size: 30px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.segundo-beneficios p{
+  font-size: 18px;
+  max-width: 80%;
+}
+.first-icon{
+  color:#ee3837;
+}
+.second-icon{
+  color:#11b62b ;
+}
+.last-icon{
+  color:#0dc8f0;
+}
+.segundo-beneficios p{
+  text-align: center;
+}
+.last{
+  border-right:none;
+}
+
+/*TERCER SLIDE */
+
+.tercer-slide{
+  background-color:#f6f5f3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:10rem 5%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+}
+
+.tercer-slide-img{
+  width:100%;
+  max-width: 700px;
+  position: relative;
+}
+.tercer-slide-img img{
+  width:100%;
+  height:auto;
+  max-width: 700px;
+  display:block
+}
+.tercer-slide-text{
+  width: 100%;
+  max-width: 600px;
+  transition: all 1s ease-in-out;
+  transform: translateY(50%);
+  opacity:0;
+}
+.animar-tercer-slide{
+  opacity: 1;
+  transform: translateY(0px);
+}
+.tercer-slide-text h4{
+  font-size: 50px;
+  color:#1B1B1B;
+  margin-bottom: 28px;
+}
+.tercer-slide .tercer-p{
+  color:#1B1B1B;
+  line-height: 24px;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.tercer-lema{
+  font-weight: 700;
+}
+.tercer-slide-text a{
+  display: inline-block;
+  background-color: var(--verde);
+  margin-top: 28px;
+  padding:16px;
+  border-radius: 5px;
+  border: none;
+  color:rgb(255,255,255);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border:1px solid rgb(0, 0, 0);
+} 
+
+/* SLIDE ADICIONAL */
+.slide-adicional{
+  background-color: rgb(255,255,255);
+  width:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.slide-adicional img{
+  width:100%;
+  max-width: 300px;
+  color:var(--verde);
+}
+.slide-adicional h4{
+  color:var(--azul);
+  text-align: center;
+  font-size: 60px;
+  max-width: 750px;
+  display: flex;
+  justify-content: center;  
+}
+.slide-adicional h4 p {
+  text-align: center;
+
+  display: block;
+
+}
+
+.slide-adicional h4 span {
+  font-size: 65px;
+  font-style: italic;
+  color: var(--verde);
+  position: relative; /* Asegúrate de que span sea relative para que el pseudo-elemento before se posicione correctamente */
+  display: inline-block;
+}
+
+.slide-adicional h4 span::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0; /* Asegúrate de que la línea subrayada inicie desde la izquierda */
+  width: 100%;
+  height: 6px;
+  background-color: var(--verde);
+  border-radius: 50px;
+  transform: scaleX(0);
+  transform-origin: left; /* Esto asegura que la animación de escala comience desde la izquierda */
+  transition: transform 2s ease-in-out; /* Faltaba la 's' para especificar segundos */
+}
+
+.slide-adicional .animar-subrayado::before {
+  transform: scaleX(1);
+}
+
+/* CUARTO SLIDE */
+
+.cuarto-slide{
+  width:100%;
+  background-color: rgb(252, 252, 252);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:10rem 5%;
+}
+.cuarto-slide-text{
+  max-width: 600px;
+  width:100%;
+}
+.cuarto-slide-text h4{
+  font-size: 50px;
+  color:#1B1B1B;
+  margin-bottom: 28px;
+}
+.cuarto-slide .cuarto-p{
+  color:#1B1B1B;
+  line-height: 24px;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.cuarto-slide-text a{
+  display: inline-block;
+  background-color: var(--verde);
+  margin-top: 28px;
+  padding:16px;
+  border-radius: 5px;
+  border: none;
+  color:rgb(255,255,255);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border:1px solid rgb(0, 0, 0);
+} 
+.programa-container{
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  max-width: 700px;
+  width: 100%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(150%);
+}
+@keyframes moveLeft{
+  from{
+    transform: translateX(100%);
+  }
+  to{
+    transform: translateX(0px);
+  }
+}
+.programa-1{
+  animation: moveLeft 1s ease-out 0s forwards;
+}
+
+.programa-2{
+  animation: moveLeft 1s ease-out .75s forwards;
+}
+
+.programa-3{
+  animation: moveLeft 1s ease-out 1.5s forwards;
+}
+.programa-icon{
+  background-color: var(--azul);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.programa-icon i {
+  width: 40px;
+  font-size: 40px;
+  height: 40px;
+  text-align: center;
+  color:#ffffff;
+}
+.cuarto-text{
+  margin-left: 20px;
+  max-width: 80%;
+
+}
+.cuarto-text h4{
+  font-size: 20px;
+}
+.cuarto-text p {
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1080px){
+  /*PRIMER SLIDE*/
+  .primer-beneficios-container div{
+    margin-right: 8px;
+  }
+  .primer-text-container h2{
+    font-size: 36px;
+  }
+  .primer-text-parrafos-container{
+    line-height: 24px;
+  }
+  .primer-slide{
+    padding:4rem 32px;
+  }
+  .cuadrado-rojo,
+  .cuadrado-blanco,
+  .cuadrado-azul {
+    height:27px;
+    margin-bottom: 18px;
+  }
+  
+  .cuadrado-rojo {
+    width: 135px;
+  }
+
+  .cuadrado-blanco {
+    width: 105px;
+  }
+
+  .cuadrado-azul {
+    width: 75px;
+  }
+  /*SEGUNDO SLIDE*/
+  .segundo-beneficios p{
+    font-size: 16px;
+  }
+  .segundo-beneficios h4{
+    font-size: 24px;
+  }
+  .segundo-beneficios img{
+    max-width: 125px;
+  }
+  /* SLIDE ADICIONAL */
+  .slide-adicional{
+    padding:16px;
+  }
+  /* TERCER SLIDE */
+  .tercer-slide-text h4{
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  .tercer-slide .tercer-p{
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+}
+@media only screen and (max-width: 950px){
+  /*PRIMER SLIDE*/
+  .link-sesion{
+      display:none;
+  }
+  .desaparecer{
+      display: none;
+  }
+  .primer-text-parrafos-container{
+    font-size: 16px;
+    padding:8px;
+  }
+  .primer-button-container{
+    font-size: 16px;
+  }
+  /*.primer-bandera-paraguay{
+    top:5px;
+  }
+
+  .cuadrado-rojo,
+  .cuadrado-blanco,
+  .cuadrado-azul {
+    height:20px;
+    margin-bottom: 8px;
+  }
+  
+  .cuadrado-rojo {
+    width: 90px;
+  }
+  .cuadrado-blanco {
+    width: 70px;
+  }
+  .cuadrado-azul {
+    width: 50px;
+  }*/
+  .primer-button-container a{
+    padding:8px;
+    font-size: 14px;
+  }
+  .primer-beneficios-container div span{
+    font-size: 16px;
+  }
+  .primer-beneficios-container div i{
+    font-size: 18px;
+    width:35px;
+    height:35px;
+  }
+
+}
+@media only screen and (max-width: 768px){
+  /*PRIMER SLIDE*/
+  .primer-slide{
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .h2-container{
+    margin-right: 0;
+  }
+  .primer-text-container h2{
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .primer-bandera-paraguay {
+    display: none;
+  }
+  
+  .cuadrado-azul {
+    z-index: 10;
+  }
+  .primer-text-parrafos-container{
+    width:100%;
+  }
+  .primer-button-container{
+    display:flex;
+    justify-content: space-around;
+  }
+  .primer-button-container a{
+    font-size: 16px;
+    display:flex;
+    text-align: center;
+    align-items: center;
+  }
+  .primer-beneficios-container{
+    display: flex;
+    justify-content: space-around;
+  }
+  .primer-beneficios-container div{
+    margin-right: 0px;
+
+  }
+  .primer-beneficios-container div i{
+    font-size: 16px;
+  }
+  /* SEGUNDO SLIDE */
+  .segundo-slide{
+    flex-direction: column;
+  }
+  .segundo-beneficios{
+    border-bottom:1px solid black;
+    border-right:none;
+  }
+  .segundo-beneficios:last-child{
+    border-bottom: none;
+  }
+  .slide-adicional h4{
+    text-align: start;
+    font-size: 50px;
+  }
+  .slide-adicional h4 span {
+    font-size: 55px;
+  }
+  .primer-button-container a{
+    font-size: 14px;
+  }
+  /* SLIDE ADICIONAL*/
+  .slide-adicional{
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .slide-adicional H4{
+    font-size: 40px;
+  }
+  .slide-adicional H4 span {
+    font-size: 45px;
+  }
+  .slide-adicional img{
+    width:200px;
+  }
+  /* TERCER SLIDE */
+  .tercer-slide{
+    flex-direction: column-reverse;
+    padding: 2rem;
+  }
+  .tercer-slide-text{
+    text-align: center;
+  }
+  .tercer-slide-img{
+    max-width:450px;
+    width:100%;
+  }
+  /* CUARTO SLIDE */
+  .cuarto-slide{
+  flex-direction: column;
+  padding:2rem;
+  }
+  .cuarto-slide-text{
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 400px){
+  .slide-adicional h4{
+    font-size: 40px;
+  }
+  .slide-adicional h4 p span{
+    font-size: 45px;
+  }
+}

@@ -1,0 +1,18 @@
+article{
+    background-color: var(--blanco);
+    width:100%;
+    padding:50px;
+    padding-left: 450px;
+}
+@media only screen and (max-width: 1024px){
+    article{
+        padding:24px;
+        padding-left: 426px;
+    }
+}
+@media only screen and (max-width: 800px){
+    article{
+        padding: 0px;
+    }
+
+}

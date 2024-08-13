@@ -1,0 +1,117 @@
+.sidebar-container{
+    width:400px;
+    height:100vh;
+    background-color:rgb(255,255,255);
+    padding:var(--padding-grande);
+    border-right: 1px solid rgb(33, 36, 44,0.1);
+    position:fixed;
+}
+.description-container{
+    display:flex;
+    align-items: center;
+    padding:16px;
+}
+.description-container-image{
+    margin-right: 16px;
+}
+.description-container-image img{
+    width:50px;
+    height:50px;
+    border:2px solid var(--gris);
+    border-radius:100%;
+}
+.description-container-letters h4{
+    color:var(--negro);
+    font-size: 18px;
+}
+.description-container-letters p {
+    color:var(--gris);
+    font-size: 12px;
+    font-weight: 700;
+}
+.buttons-container{
+    padding:var(--padding-grande);
+    padding-top:0;
+    padding-left:0;
+    display:flex;
+    flex-direction: column;
+}
+.buttons-units{
+    background-color: rgb(255,255,255);
+    border:none;
+    text-align: left;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+    height:75px;
+    border-top: 1px solid rgb(33, 36, 44,0.1);
+    padding:12px;
+}
+.buttons-units:hover{
+    background-color: rgb(33, 36, 44,0.08);
+}
+.selected{
+    border-left:5px solid var(--verde);
+    background-color: rgba(70, 129, 137,.2);
+}
+.selected:hover{
+    background-color: rgba(70, 129, 137,.4);
+}
+.buttons-container .unidad-span{
+    color:var(--gris);
+    font-weight: bold;
+}
+.buttons-container .title-span{
+    font-size: 16px;
+    color:var(--negro)
+}
+.test-container{
+    border:1px solid rgb(33, 36, 44,0.1);
+    padding:var(--padding-grande);
+}
+.test-container span{
+    font-size: 18px;
+    text-align: center;
+    color:var(--negro)
+}
+.test-container span i{
+    margin-right: 6px;
+    color: var(--verde);
+}
+.test-container p{
+    font-size: 14px;
+    margin-top:12px;
+    margin-bottom:12px;
+    color:var(--gris);
+}
+.test-container button{
+    background: none;
+    border: none;
+    font-size:16px;
+    font-weight: 800;
+    color:var(--verde);
+    cursor:pointer;
+}
+.test-container a{
+    background: none;
+    border: none;
+    font-size:16px;
+    font-weight: 800;
+    color:var(--verde);
+    cursor:pointer;
+}
+.test-container a:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+.test-container button:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+@media only screen and (max-width: 800px){
+    .sidebar-container{
+        display: none;
+    }
+
+}
