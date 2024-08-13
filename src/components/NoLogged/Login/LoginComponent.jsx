@@ -25,6 +25,7 @@ const LoginComponent = () => {
         e.preventDefault()
         setLoader(true)
         try{
+            console.log(apiLink)
             let res=await fetch(`${apiLink}/login`,{
                 method:"POST",
                 headers:{"Content-type":"application/json"},
