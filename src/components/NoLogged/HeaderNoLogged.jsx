@@ -6,9 +6,11 @@ import { useContext } from 'react'
 import LoginContext from '../../context/LoginContext'   
 import logoArandu from "../../assets/imgs/logoArandu.png"
 import apiLink from '../../helpers/apiLink'
+import NameContext from '../../context/NameContext'
 const HeaderNoLogged = () => {
 
     const {logged,setLogged}=useContext(LoginContext)
+    const {name,setName}=useContext(NameContext)
     const [nombre,setNombre]=useState("")
     const [showMenu,setShowMenu]=useState(false)
     const [burgerMenu,setBurgetMenu]=useState(false)
@@ -24,19 +26,23 @@ const HeaderNoLogged = () => {
     useEffect(() => {
         if(localStorage.getItem("token")){
             const getNombre=async()=>{
-                try{
-                    let resToken=await fetch(`${apiLink}/login/token`,{
-                      method:"POST",
-                      headers:{
-                        "Content-type":"application/json",
-                        "Authorization":`Bearer ${localStorage.getItem("token")}`
+                if(name){
+                    return 
+                }else{
+                    try{
+                        let resToken=await fetch(`${apiLink}/login/token`,{
+                          method:"POST",
+                          headers:{
+                            "Content-type":"application/json",
+                            "Authorization":`Bearer ${localStorage.getItem("token")}`
+                          }
+                        })
+                        let jsonToken=await resToken.json()
+                        console.log(jsonToken)
+                        setName(`${jsonToken.decoded.nombre.split(" ")[0]} ${jsonToken.decoded.apellido.split(" ")[0]}`)
+                      }catch(err){
                       }
-                    })
-                    let jsonToken=await resToken.json()
-    
-                    setNombre(`${jsonToken.decoded.nombre.split(" ")[0]} ${jsonToken.decoded.apellido.split(" ")[0]}`)
-                  }catch(err){
-                  }
+                }
             }
             getNombre()
         }
@@ -127,7 +133,7 @@ const HeaderNoLogged = () => {
                         className="link-perfil" >Cerrar sesión</button></li>
                     </ul>   
                 </i>
-                <span className='span-nombre'>{nombre}</span>
+                <span className='span-nombre'>{name}</span>
             </nav>
                 </div>
             </>:<>

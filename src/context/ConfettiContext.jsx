@@ -1,12 +1,10 @@
 import { createContext, useState } from "react";
-import { useParams } from "react-router-dom";
 
 const ConfettiContext=createContext()
 
 const ConfettiProvider=({children})=>{
-    const [showConfetti,setShowConfetti]=useState(false)
+    const [showConfetti,setShowConfetti]=useState(null)
 
-    const url=useParams()
     const data={showConfetti,setShowConfetti}
     return(
         <ConfettiContext.Provider value={data}>
