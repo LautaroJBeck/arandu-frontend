@@ -120,7 +120,6 @@ const MainNoLogged = () => {
             <Link to="/lectura/fundamentos">Entiende más sobre el programa</Link>
         </div>
         <div 
-        ref={fourthSlideRef}
         className="cuarto-programa-container">
           <div className={`programa-container`}>
             <div className="programa-icon">
