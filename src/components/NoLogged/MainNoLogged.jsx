@@ -17,10 +17,6 @@ const MainNoLogged = () => {
     triggerOnce: true, // La animación se dispara solo la primera vez
     threshold: 0.5 // Se activa cuando el 10% del elemento es visible
   })
-  const {ref:fourthSlideRef,inView:fourthIsVisible}=useInView({
-    triggerOnce: true, // La animación se dispara solo la primera vez
-    threshold: 0.5 // Se activa cuando el 10% del elemento es visible
-  })
   return (
     <main>
       
@@ -126,7 +122,7 @@ const MainNoLogged = () => {
         <div 
         ref={fourthSlideRef}
         className="cuarto-programa-container">
-          <div className={`${fourthIsVisible?"programa-1":""} programa-container`}>
+          <div className={`programa-container`}>
             <div className="programa-icon">
               <i className="fa-solid fa-user"></i>
             </div>
@@ -136,7 +132,7 @@ const MainNoLogged = () => {
               <p>Para empezar a aprender, un estudiante debe registrarse dentro de la aplicación. Un usuario registrado tiene acceso ilimitado a todos los recursos didacticos de Arandu</p>
             </div>
           </div>
-          <div className={`${fourthIsVisible?"programa-2":""} programa-container`}>
+          <div className={`programa-container`}>
             <div className="programa-icon">
               <i className="fa-solid fa-globe"></i>
             </div>
@@ -145,7 +141,7 @@ const MainNoLogged = () => {
               <p>Arandu permite tomar un examen evaluatorio para que el estudiante pueda identificar areas en las que reforzar su comprensión lectora</p>
             </div>
           </div>
-          <div className={`${fourthIsVisible?"programa-3":""} programa-container`}>
+          <div className={`programa-container`}>
             <div className="programa-icon">
               <i className="fa-solid fa-book"></i>
             </div>
