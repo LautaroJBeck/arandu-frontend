@@ -4,7 +4,7 @@
     background-color: rgb(255,255,255);
     display:flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     flex-direction: column;
     margin-left: 400px;
     position: relative;
@@ -21,7 +21,7 @@
 }    
 .ejercicios-header-titulo{
     color:var(--negro);
-    font-size: 25px;
+    font-size: 28px;
     margin-right: 0px;
     height:100%;
 }
@@ -532,6 +532,44 @@
 }
 .resuelve-4{
     display: none;
+}
+.explicacion-container{
+    max-width: 700px;
+}
+.vista-explicacion{
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border-top: 1px solid rgb(33, 36, 44, 0.1);
+}
+.vista-explicacion h2{
+    font-size: 28px;
+    color:var(--negro);
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+.vista-explicacion h3{
+    font-size: 26px;
+    margin-bottom: 32px;
+    color:var(--negro);
+}
+.vista-explicacion p{
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 32px;
+    color:var(--negro);
+}
+.vista-explicacion ul{
+    color:var(--negro);
+    display: block;
+    list-style: disc;
+    font-size: 20px;
+    margin: 0px 0px 32px 35px;
+}
+.vista-explicacion ul li{
+    padding: 2px 0px;
+}
+.vista-pasos{
+    padding:16px;
 }
 @media only screen and (max-width:1100px){
     .circles-container{

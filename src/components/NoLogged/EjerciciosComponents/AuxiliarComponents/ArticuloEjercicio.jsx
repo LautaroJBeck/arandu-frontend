@@ -6,19 +6,16 @@ import EjerciciosComponent from './EjerciciosComponent'
 import { CorrectModal } from './Modals/CorrectModal'
 import IncorrectModal from './Modals/IncorrectModal'
 import WarningModal from './Modals/WarningModal'
+import EjerciciosExplicacion from './ExplanationComponents/EjerciciosExplicacion'
 const ArticuloEjercicio = () => {
   const url=useParams()
   const [showCorrectModal,setShowCorrectModal]=useState(false)
   const [showIncorrectModal,setShowIncorrectModal]=useState(false)
   const [showWarningModal,setShowWarningModal]=useState(false)
   const [authorizeNext,setAuthorizeNext]=useState(false)
-  useEffect(() => {
-    if(!localStorage.getItem("token")){
-      window.location.href="/"
-    }
-  }, [])
-  return (
-    <article className="ejercicios-container">
+  const handleContent=()=>{
+    if(url.tipo=="practicar"){
+      return <article className="ejercicios-container">
       <EjerciciosHeader url={url}/>
       <EjerciciosComponent 
       setShowIncorrectModal={setShowIncorrectModal}
@@ -32,6 +29,24 @@ const ArticuloEjercicio = () => {
      setAuthorizeNext={setAuthorizeNext}
      setShowWarningModal={setShowWarningModal}/>}
     </article>
+    }else{
+      return <article className="ejercicios-container">
+      <EjerciciosHeader url={url}/>
+      <EjerciciosExplicacion/>
+      </article>
+    }
+  }
+  useEffect(() => {
+    handleContent()
+    if(!localStorage.getItem("token")){
+      window.location.href="/"
+    }
+  }, [])
+  
+  return (
+    <>
+      {handleContent()}
+    </>
   )
 }
 
