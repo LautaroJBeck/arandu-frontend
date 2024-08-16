@@ -3,6 +3,8 @@ import PalabrasContexto from './PalabrasContexto'
 import { useParams } from 'react-router-dom'
 import IdeasCentrales from './IdeasCentrales'
 import ConexionesConflictos from './ConexionesConflictos'
+import EstructuraTexto from './EstructuraTexto'
+import Inferencias from './Inferencias'
 
 const EjerciciosExplicacion = () => {
     const {ejercicio}=useParams()
@@ -15,6 +17,10 @@ const EjerciciosExplicacion = () => {
             return <IdeasCentrales/>
         }else if(ejercicio=="conexiones"){
             return <ConexionesConflictos/>
+        }else if(ejercicio=="estructura"){
+            return <EstructuraTexto/>
+        }else if(ejercicio=="inferencias"){
+            return <Inferencias/>
         }
     }
   return (

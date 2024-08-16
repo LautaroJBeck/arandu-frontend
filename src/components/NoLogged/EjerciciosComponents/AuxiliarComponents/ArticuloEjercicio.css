@@ -544,7 +544,7 @@
 .vista-explicacion h2{
     font-size: 28px;
     color:var(--negro);
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     margin-top: 32px;
 }
 .vista-explicacion h3{
