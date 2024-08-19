@@ -32,15 +32,15 @@ const LecturaSideBar = ({url}) => {
             </Link>
             <Link onClick={()=>handleRuta("basico")} to="/lectura/basico" className={`buttons-units ${currentLink=="basico"?"selected":""}`}>
                 <span className='unidad-span'>Unidad 2</span>
-                <span className='title-span'>Nivel básico de comprensión lectora</span>
+                <span className='title-span'>Nivel básico (Segundo ciclo)</span>
             </Link>
             <Link onClick={()=>handleRuta("medio")} to="/lectura/medio" className={`buttons-units ${currentLink=="medio"?"selected":""}`}>
                 <span className='unidad-span'>Unidad 3</span>
-                <span className='title-span'>Nivel medio de comprensión lectora</span>
+                <span className='title-span'>Nivel medio (Tercer ciclo)</span>
             </Link>
             <Link onClick={()=>handleRuta("avanzado")} to="/lectura/avanzado" className={`buttons-units ${currentLink=="avanzado"?"selected":""}`}>
                 <span className='unidad-span'>Unidad 4</span>
-                <span className='title-span'>Nivel avanzado de comprensión lectora</span>
+                <span className='title-span'>Nivel avanzado (Nivel medio)</span>
             </Link>
         </div>
         <div className='test-container'>

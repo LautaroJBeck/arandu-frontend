@@ -49,11 +49,11 @@ const VistaNiveles = ({url}) => {
       }, [])
     const handleTitle=()=>{
         if(url=="basico"){
-            return "Unidad 2: Nivel básico de la comprensión lectora"
+            return "Unidad 2: Nivel básico (Segundo ciclo)"
         }else if(url=="medio"){
-            return "Unidad 3: Nivel medio de la comprensión lectora"
+            return "Unidad 3: Nivel medio (Tercer ciclo)"
         }else{
-            return "Unidad 4: Nivel avanzado de la comprensión lectora"
+            return "Unidad 4: Nivel avanzado (Nivel medio)"
         }
     }
     useEffect(() => {
