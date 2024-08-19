@@ -211,18 +211,18 @@ const VistaNiveles = ({url}) => {
         </div>
         <div className="cursos-container">
             <div className="cursos-decodificacion-container curso-container">
-                <h2>Ejercicos de decodificación</h2>
+                <h2>Ejercicios de decodificación</h2>
                 <HabilidadComponent nivel={url} tipo="contexto" titulo="Palabras en contexto"/>
                 <HabilidadComponent nivel={url} tipo="significado" titulo="Reconocimiento del significado"/>
             </div>
             <div className="cursos-literal-container curso-container">
-                <h2>Ejercicos de comprensión literal</h2>
+                <h2>Ejercicios de comprensión literal</h2>
                 <HabilidadComponent nivel={url} tipo="central" titulo="Ideas centrales y detalles"/>
                 <HabilidadComponent nivel={url} tipo="conexiones" titulo="Conexiones y conflictos entre textos"/>
                 <HabilidadComponent nivel={url} tipo="estructura" titulo="Estructura del texto y propósito"/>
             </div>
             <div className="cursos-inferencial-container curso-container">
-                <h2>Ejercicos de comprensión inferencial</h2>
+                <h2>Ejercicios de comprensión inferencial</h2>
                 <HabilidadComponent nivel={url} tipo="inferencias" titulo="Inferencias"/>
                 <HabilidadComponent nivel={url} tipo="textuales" titulo="Evidencias textuales"/>
             </div>

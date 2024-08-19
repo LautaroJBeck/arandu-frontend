@@ -31,15 +31,15 @@ const MainNoLogged = () => {
             <div className='cuadrado-azul'></div>
           </div>
           <div className="primer-text-parrafos-container">
-            <p>Somos una organizacion paraguaya sin fines de lucro que busca disminuir el analfabetismo funcional</p>
+            <p>"Arandu" es una aplicación paraguaya sin fines de lucro que busca disminuir el <b>analfabetismo funcional</b></p>
             <br />
             <p>Construye buenas habilidades de <Link to="/lectura/fundamentos" className="primer-text-link">escritura y lectura</Link> usando Arandu!</p>
           </div>
           <br className='desaparecer'/>
           <br />
           <div className="primer-button-container">
-            <Link to="/lectura/basico">Empezar a practicar</Link>
             <Link to="/registro">Registrarse</Link>
+            <Link to="/lectura/basico">Empezar a practicar</Link>
           </div>
           <br />
           <br className='desaparecer'/>
