@@ -3,6 +3,8 @@ import EditarPerfil from './ContentComponents/EditarPerfil'
 import SeguridadCuenta from './ContentComponents/SeguridadCuenta'
 import CerrarCuenta from './ContentComponents/CerrarCuenta'
 import MiAprendizaje from './ContentComponents/MiAprendizaje'
+import MisProfesores from './ContentComponents/MisRelaciones/MisProfesores'
+import MisEstudiantes from './ContentComponents/MisRelaciones/MisEstudiantes'
 
 const ContentPerfil = ({id}) => {
   const returnContent=()=>{
@@ -14,6 +16,10 @@ const ContentPerfil = ({id}) => {
       return  <CerrarCuenta/>
     }else if(id=="aprendizaje"){
       return <MiAprendizaje/>
+    }else if(id=="mis-profesores"){
+      return <MisProfesores/>
+    }else if(id=="mis-estudiantes"){
+      return <MisEstudiantes/>
     }
   }
   return (

@@ -107,8 +107,13 @@
     align-items: center;
     padding: 24px;
 }
+.perfil-content p{
+    margin-bottom: 16px;
+    margin-top: 16px;
+
+}
 .perfil-container label{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color:var(--negro);
     max-width:600px;
@@ -317,6 +322,7 @@
 }
 .button-examenes-container{
     margin-top: 16px;
+    margin-bottom: 32px;
 }
 .button-examenes-container{
     display:flex;
@@ -350,6 +356,12 @@
     color:var(--negro);
     font-size: 20px;
     text-align: center;
+}
+.titulo-examenes{
+    color:var(--negro);
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 25px; 
 }
 .pc-table {
     border-collapse: collapse;
@@ -434,6 +446,81 @@
 .rp-th:last-child{
     border-top-right-radius: 6px;
 }
+.solicitudes-container{
+    margin-top: 16px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.solicitud-container{
+    max-width:600px;
+    width:100%;
+    border-bottom:1px solid rgba(33, 36, 44, 0.32);
+    display:flex;
+    padding:16px 0px;
+}
+.solicitud-container:first-child{
+    border-top:1px solid rgba(33,36,44,0.32);
+}
+.icon-solicitud{
+    display:flex;
+    justify-content: center ;
+    align-items: center;
+}
+.icon-solicitud i{
+    color:var(--verde);
+    font-size: 32px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:50px;
+    width:50px;
+    border:2px solid var(--verde);
+    border-radius: 50%;
+}
+.invitacion-button-container{
+    flex: 1;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.examenes-button-container{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+.invitacion-rechazar{
+    background-color: #ffffff;
+    border:none;
+    color:var(--verde);
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.invitacion-aceptar{
+    background-color:var(--verde);
+    border:none;
+    color:var(--blanco);
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.span-correo{
+    color:var(--gris);
+    font-weight: 700;
+    font-size: 16px;
+}
+.explanation-p{
+    max-width: 600px;
+    width:100%;
+    font-size: 16px;
+    text-align: start;
+    
+}
 @media only screen and (max-width: 768px) {
     .perfil-container{
         flex-direction: column;
@@ -452,5 +539,14 @@
     }
     .rp-table{
         display: block;
+    }
+    .span-correo{
+        display:none;
+    }
+    .fecha-container{
+        justify-content: center;
+    }
+    .invitacion-button-container {
+        flex-direction: column;
     }
 }

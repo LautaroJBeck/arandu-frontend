@@ -1,47 +1,37 @@
 import React, { useEffect, useState } from 'react'
+import apiLink from '../../../../../helpers/apiLink'
+import Loader from '../../../../Loader/Loader'
+import MostrarUnidad from '../MostrarUnidad';
+import MostrarGeneral from '../MostrarGeneral';
+
 import dayjs from 'dayjs';
-import {Link} from "react-router-dom"
-import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/es';
-import MostrarGeneral from './MostrarGeneral';
-import MostrarUnidad from './MostrarUnidad';
-import apiLink from '../../../../helpers/apiLink';
-import Loader from '../../../Loader/Loader';
+import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime)
 dayjs.locale("es")
-
-const MiAprendizaje = () => {
+const VerAlumno = ({id,setVerAlumno}) => {
     const [examenes,setExamenes]=useState([])
     const [focusExamen,setFocusExamen]=useState([])
     const [page,setPages]=useState({number:0,max:0})
     const [verExamen,setVerExamen]=useState()
     const [loader,setLoader]=useState(null)
+
     useEffect(() => {
-        document.title="Mi Aprendizaje | Arandu"
         const peticion=async()=>{
             setLoader(true)
-            let resToken=await fetch(`${apiLink}/login/token`,{
-                method:"POST",
-                headers:{
-                  "Content-type":"application/json",
-                  "Authorization":`Bearer ${localStorage.getItem("token")}`
-                }
-              })
-              let jsonToken=await resToken.json()
-              let resExamen=await fetch(`${apiLink}/examen/historial/${jsonToken.decoded.id}`,{
+            let resExamen=await fetch(`${apiLink}/examen/historial/${id}`,{
                 method:"GET",
                 headers:{"Content-type":"application/json",}
-              })
-              let jsonExamen=await resExamen.json()
-              console.log(jsonExamen)
-              setPages({...page,max:Math.ceil(jsonExamen.listaExamenes.length/5)})
-              setExamenes(jsonExamen.listaExamenes.sort((a,b)=>b.examen_id-a.examen_id))
-              setFocusExamen(jsonExamen.listaExamenes.slice(0,5))
+            })
+            let jsonExamen=await resExamen.json()
+            console.log(jsonExamen)
+            setPages({...page,max:Math.ceil(jsonExamen.listaExamenes.length/5)})
+            setExamenes(jsonExamen.listaExamenes.sort((a,b)=>b.examen_id-a.examen_id))
+            setFocusExamen(jsonExamen.listaExamenes.slice(0,5))
             setLoader(false)
         }
         peticion()
     }, [])
-
     useEffect(()=>{
         if(examenes) setFocusExamen(examenes.slice(page.number,page.number+5))
     },[page])
@@ -50,11 +40,9 @@ const MiAprendizaje = () => {
         if(page.number!=0) setPages({...page,number:page.number-5})
         
     }
-
     const handleAdelantar=()=>{
         if(page.max!=(page.number/5)+1) setPages({...page,number:page.number+5})
     }
-
     const handleVerExamen=async(el)=>{
         if(el.nivel=="general"){
             let resExamen=await fetch(`${apiLink}/examen/puntaje/${el.examen_id}/general`,{
@@ -110,15 +98,14 @@ const MiAprendizaje = () => {
             //setVerExamen({fecha:el.fecha,total:el.total,datosListas})
         }
     }
-        const returnNombre=(el)=>{
-            if(el.nivel=="basico"){
-                return "Básico"
-            }else{
-            return el.nivel[0].toUpperCase() + el.nivel.slice(1);
-            }
+    const returnNombre=(el)=>{
+        if(el.nivel=="basico"){
+            return "Básico"
+        }else{
+           return el.nivel[0].toUpperCase() + el.nivel.slice(1);
         }
+    }
     const devolverExamenes=()=>{
-
         return focusExamen.map((el,index)=>{
             return <div className={`examen-container ${index==0?"primero":""}`}>
             <div className="icon-container">
@@ -152,33 +139,38 @@ const MiAprendizaje = () => {
     }
   return (
     <>
-{loader?<Loader/>:verExamen?<>
-        {mostrarExamenSeleccionado()}
-    </>:examenes.length>0?<>
-    <label htmlFor="">Historial de examenes</label>
-    <div className="examenes-container">
-        {focusExamen&&devolverExamenes()}
-    </div>
-    <div className="button-examenes-container">
-        <div>
-            <span className="pagina-number">Página {(page.number/5)+1}</span>
-        </div>
-        <div>
-            <button 
-            onClick={handleRetroceder}
-            className={`button-atras ${page.number!=0?"activado":""}`}>Atrás</button>
-            <span className='button-separator'>|</span>
-            <button 
-            onClick={handleAdelantar}
-            className={`button-atras ${page.max!=(page.number/5)+1?"activado":""}`}>Adelante</button>
-        </div>
-    </div>
-    </>:<>
+        {loader?<Loader/>:verExamen?<>
+            {mostrarExamenSeleccionado()}
+        </>:examenes.length>0?<>
+        <h4 className='titulo-examenes'>Examenes de Lautaro Beck</h4>
         <label htmlFor="">Historial de examenes</label>
-        <p className='explanation-p'>Todavía no tomaste ningún examen, para tomar tu primer examen, <Link to="/examen/general" className='presiona-aqui'>presiona aquí</Link></p>
+        <div className="examenes-container">
+            {focusExamen&&devolverExamenes()}
+        </div>
+        <div className="button-examenes-container">
+            <div>
+                <span className="pagina-number">Página {(page.number/5)+1}</span>
+            </div>
+            <div>
+                <button 
+                onClick={handleRetroceder}
+                className={`button-atras ${page.number!=0?"activado":""}`}>Atrás</button>
+                <span className='button-separator'>|</span>
+                <button 
+                onClick={handleAdelantar}
+                className={`button-atras ${page.max!=(page.number/5)+1?"activado":""}`}>Adelante</button>
+            </div>
+        </div>
+        <div className='button-changes-container'>
+            <button 
+            onClick={()=>setVerAlumno({mostrar:false,id:null})}
+            className='button-changes changes-active'>Volver</button>
+        </div>
+    </>:<>
+        <p>Este alumno todavía no ha tomado ningún examen</p>
     </>}
     </>
   )
 }
 
-export default MiAprendizaje
+export default VerAlumno

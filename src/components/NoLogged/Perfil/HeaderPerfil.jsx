@@ -22,6 +22,18 @@ const HeaderPerfil = ({id}) => {
                 <h4>Seguridad de la Cuenta</h4>
                 <p>Cambia la contraseña y manten segura tu cuenta</p>
             </>
+        }else if(id=="mis-profesores"){
+            return <>
+                <h4>Mis profesores</h4>
+                <p>Mira el listado de tus profesores y maneja sus invitaciones</p>
+            </>
+        }else if(id=="mis-estudiantes"){
+            return <>
+                <h4>Mis estudiantes</h4>
+                <p>Invita a estudiantes y mira su desempeño académico </p>
+            </>
+        }else{
+            window.location.href="/perfil/editar-perfil"
         }
     }
   return (

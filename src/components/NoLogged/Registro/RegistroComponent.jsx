@@ -10,7 +10,8 @@ const RegistroComponent = () => {
         nombre:"",
         apellido:"",
         correo:"",
-        password:""
+        password:"",
+        rol:"estudiante"
     })
     const [showPassword,setShowPassword]=useState(false)
     const [loader,setLoader]=useState(null)
@@ -21,6 +22,12 @@ const RegistroComponent = () => {
             [e.target.name]:e.target.value
         })
     }  
+    const handleRol=(e)=>{
+      setValues({
+        ...values,
+        rol:e
+      })
+    }
     const handleSubmit=async(e)=>{
       setLoader(true)
         try{
@@ -107,6 +114,15 @@ const RegistroComponent = () => {
          className="fa-solid fa-eye"></i>:
          <i onClick={()=>setShowPassword(!showPassword)} className="fa-solid fa-eye-slash"></i>}
          
+        </div>
+        <div className="form-container">
+          <div className='rol-container'>
+            <p>Registrate como:</p>
+            <div className='rol-button-container'>
+              <button onClick={()=>handleRol("estudiante")} className={`rol-button-container-button ${values.rol=="estudiante"?"rol-button-active":""}`}>Estudiante</button>
+              <button onClick={()=>handleRol("docente")} className={`rol-button-container-button ${values.rol=="docente"?"rol-button-active":""}`}>Docente</button>
+            </div>
+          </div>
         </div>
         <button 
         className="send-form-button"
