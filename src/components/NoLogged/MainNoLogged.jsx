@@ -23,7 +23,7 @@ const MainNoLogged = () => {
       <div id="home" className="primer-slide">
         <div className='primer-text-container'>
           <div className="h2-container">
-            <h2>Mejorar tu capacidad de lectura y escritura garantiza un mejor futuro!</h2>
+            <h2>Mejorar tu capacidad de lectura y escritura te garantiza un mejor futuro!</h2>
           </div>
           <div className="primer-bandera-paraguay">
             <div className='cuadrado-rojo'></div>
@@ -31,7 +31,7 @@ const MainNoLogged = () => {
             <div className='cuadrado-azul'></div>
           </div>
           <div className="primer-text-parrafos-container">
-            <p>"Arandu" es una aplicación paraguaya sin fines de lucro que busca disminuir el <b>analfabetismo funcional</b></p>
+            <p>Arandu es una aplicación paraguaya sin fines de lucro que busca disminuir el <b>analfabetismo funcional</b></p>
             <br />
             <p>Construye buenas habilidades de <Link to="/lectura/fundamentos" className="primer-text-link">escritura y lectura</Link> usando Arandu!</p>
           </div>

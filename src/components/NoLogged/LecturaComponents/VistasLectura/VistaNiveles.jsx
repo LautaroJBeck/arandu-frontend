@@ -6,6 +6,7 @@ import LoginContext from '../../../../context/LoginContext'
 import ScoreContext from '../../../../context/ScoreContext'
 import apiLink from '../../../../helpers/apiLink'
 import Loader from '../../../Loader/Loader'
+import tildeMinuscula from '../../../../helpers/tildeMinuscula'
 const VistaNiveles = ({url}) => {
 
     const {logged,setLogged}=useContext(LoginContext)
@@ -53,7 +54,7 @@ const VistaNiveles = ({url}) => {
         }else if(url=="medio"){
             return "Unidad 3: Nivel medio (Tercer ciclo)"
         }else{
-            return "Unidad 4: Nivel avanzado (Nivel medio)"
+            return "Unidad 4: Nivel avanzado (Educación media)"
         }
     }
     useEffect(() => {
@@ -96,7 +97,7 @@ const VistaNiveles = ({url}) => {
               className="fa-regular fa-square icono-niveles progreso-icono-vacio">
                 <div className="icon-submenu-flecha">
                     <div className="icon-submenu">
-                        <h4>Ejercicio: {titulos[el[0]]}: {url}</h4>
+                        <h4>Ejercicio: {titulos[el[0]]}: {tildeMinuscula(url)}</h4>
                         <span>Aprendizaje: Sin empezar</span>
                     </div>
                 </div>
@@ -107,7 +108,7 @@ const VistaNiveles = ({url}) => {
               className="fa-regular fa-star icono-niveles progreso-icono-semicompleto">
                 <div className="icon-submenu-flecha">
                     <div className="icon-submenu">
-                        <h4>Ejercicio: {titulos[el[0]]}: {url}</h4>
+                        <h4>Ejercicio: {titulos[el[0]]}: {tildeMinuscula(url)}</h4>
                         <span>Aprendizaje: Intentado</span>
                     </div>
                 </div>
@@ -118,7 +119,7 @@ const VistaNiveles = ({url}) => {
               className="fa-solid fa-star-half-stroke icono-niveles progreso-icono-semicompleto">
                 <div className="icon-submenu-flecha">
                     <div className="icon-submenu">
-                        <h4>Ejercicio: {titulos[el[0]]}: {url}</h4>
+                        <h4>Ejercicio: {titulos[el[0]]}: {tildeMinuscula(url)}</h4>
                         <span>Aprendizaje: Familiarizado</span>
                     </div>
                 </div>
@@ -129,7 +130,7 @@ const VistaNiveles = ({url}) => {
               className="fa-solid fa-star icono-niveles progreso-icono-semicompleto">
                 <div className="icon-submenu-flecha">
                     <div className="icon-submenu">
-                        <h4>Ejercicio: {titulos[el[0]]}: {url}</h4>
+                        <h4>Ejercicio: {titulos[el[0]]}: {tildeMinuscula(url)}</h4>
                         <span>Aprendizaje: Eficiente</span>
                     </div>
                 </div>
@@ -140,7 +141,7 @@ const VistaNiveles = ({url}) => {
               className="fa-solid fa-star icono-niveles progreso-icono-completo">
                 <div className="icon-submenu-flecha">
                     <div className="icon-submenu">
-                        <h4>Ejercicio: {titulos[el[0]]}: {url}</h4>
+                        <h4>Ejercicio: {titulos[el[0]]}: {tildeMinuscula(url)}</h4>
                         <span>Aprendizaje: Masterizado</span>
                     </div>
                 </div>
@@ -202,8 +203,8 @@ const VistaNiveles = ({url}) => {
         </div>
         <div className='examen-unidad-container'>
             <div>
-                <h4>Examen de unidad: {url}</h4>
-                <p>Prueba tus capacidades de comprensión lectora en el nivel {url}</p>
+                <h4>Examen de unidad: {tildeMinuscula(url)}</h4>
+                <p>Prueba tus capacidades de comprensión lectora en el nivel {tildeMinuscula(url)}</p>
                 {logged?<Link to={`/examen/${url}`}>Empezar examen de unidad</Link>:<Link to={"/registro"}>Registrate para tomar un examen!</Link>}
             </div>
             <div>

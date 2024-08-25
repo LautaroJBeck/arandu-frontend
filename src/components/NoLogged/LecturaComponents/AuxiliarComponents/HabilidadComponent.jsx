@@ -3,6 +3,7 @@ import { useContext } from "react";
 import LoginContext from "../../../../context/LoginContext";
 import ScoreContext from "../../../../context/ScoreContext";
 import { Link } from "react-router-dom";
+import tildeMinuscula from "../../../../helpers/tildeMinuscula";
 
 const HabilidadComponent = ({nivel,titulo,tipo}) => {
   const {logged,setLogged}=useContext(LoginContext)
@@ -39,14 +40,14 @@ const HabilidadComponent = ({nivel,titulo,tipo}) => {
             <p>Aprender</p>
             <Link to={`/lectura/${nivel}/aprender/${tipo}`}>
               <i className="fa-solid fa-file"></i>
-              <span>{`Guía: ${titulo} - ${nivel}`}</span>
+              <span>{`Guía: ${titulo} - ${tildeMinuscula(nivel)}`}</span>
             </Link>
           </div>
           <div className="practicar-section">
             <p>Practicar</p>
             <button className="boton-practicar">
               <div className="boton-practicar-informacion">
-                <span className="boton-practicar-informacion-titulo">{`${titulo}: ${nivel}`}</span>
+                <span className="boton-practicar-informacion-titulo">{`${titulo}: ${tildeMinuscula(nivel)}`}</span>
                {logged&&<Link className="boton-practicar-informacion-logrado">{returnMensaje()}</Link>} 
                 {logged?
                 <Link to={`/lectura/${nivel}/practicar/${tipo}`} className="boton-practicar-informacion-practica">Practica para aumentar tu nivel!</Link>: 
