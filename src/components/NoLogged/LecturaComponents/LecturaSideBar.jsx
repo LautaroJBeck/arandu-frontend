@@ -12,6 +12,9 @@ const LecturaSideBar = ({url}) => {
     }
     const {logged,setLogged}=useContext(LoginContext);
 
+    useEffect(() => {
+        handleRuta(url)
+    }, [url])
     
   return (
     <aside className="sidebar-container">
@@ -26,21 +29,21 @@ const LecturaSideBar = ({url}) => {
             </div>
         </div>
         <div className="buttons-container">
-            <Link onClick={()=>handleRuta("fundamentos")} to="/lectura/fundamentos" className={`buttons-units ${currentLink=="fundamentos"?"selected":""}`}>
+            <Link to="/lectura/fundamentos" className={`buttons-units ${currentLink=="fundamentos"?"selected":""}`}>
                 <span className='unidad-span'>Unidad 1</span>
                 <span className='title-span'>Fundamentos de la comprensión lectora</span>
             </Link>
-            <Link onClick={()=>handleRuta("basico")} to="/lectura/basico" className={`buttons-units ${currentLink=="basico"?"selected":""}`}>
+            <Link to="/lectura/basico" className={`buttons-units ${currentLink=="basico"?"selected":""}`}>
                 <span className='unidad-span'>Unidad 2</span>
                 <span className='title-span'>Nivel básico (Segundo ciclo)</span>
             </Link>
-            <Link onClick={()=>handleRuta("medio")} to="/lectura/medio" className={`buttons-units ${currentLink=="medio"?"selected":""}`}>
+            <Link to="/lectura/medio" className={`buttons-units ${currentLink=="medio"?"selected":""}`}>
                 <span className='unidad-span'>Unidad 3</span>
                 <span className='title-span'>Nivel medio (Tercer ciclo)</span>
             </Link>
-            <Link onClick={()=>handleRuta("avanzado")} to="/lectura/avanzado" className={`buttons-units ${currentLink=="avanzado"?"selected":""}`}>
+            <Link to="/lectura/avanzado" className={`buttons-units ${currentLink=="avanzado"?"selected":""}`}>
                 <span className='unidad-span'>Unidad 4</span>
-                <span className='title-span'>Nivel avanzado (Nivel medio)</span>
+                <span className='title-span'>Nivel avanzado (Educación media)</span>
             </Link>
         </div>
         <div className='test-container'>

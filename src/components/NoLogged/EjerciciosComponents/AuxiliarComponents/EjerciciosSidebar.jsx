@@ -20,6 +20,15 @@ const EjerciciosSidebar = ({url}) => {
     }
     return objetosMap[url.ejercicio]
   }
+  const returnUnidad=(nivel)=>{
+    if(nivel=="basico"){
+      return {titulo:"Unidad 2",descripcion:"Nivel básico (Segundo ciclo)"}
+    }else if(nivel=="medio"){
+      return {titulo:"Unidad 3",descripcion:"Nivel medio (Tercer ciclo)"}
+    }else if(nivel=="avanzado"){
+      return {titulo:"Unidad 4",descripcion:"Nivel avanzado (Educación media)"}
+    }
+  }
   return (
     <aside className="sidebar-container">
         <div className="sidebar-container2">
@@ -33,12 +42,16 @@ const EjerciciosSidebar = ({url}) => {
             </div>
         </div>
         <div className="buttons-container">
+            <Link onClick={()=>handleRuta("no")} to={`/lectura/${url.id}`} className={`buttons-units ${currentLink=="no"?"selected":""}`}>
+                <span className='unidad-span'>{returnUnidad(url.id).titulo}</span>
+                <span className='title-span'>{returnUnidad(url.id).descripcion}</span>
+            </Link>
             <Link onClick={()=>handleRuta("aprender")} to={`/lectura/${url.id}/aprender/${url.ejercicio}`} className={`buttons-units ${currentLink=="aprender"?"selected":""}`}>
-                <span className='unidad-span'>Unidad 1</span>
+                <span className='unidad-span'>Parte 1: {devolverTitulo()}</span>
                 <span className='title-span'>{`${devolverTitulo()} - lección`}</span>
             </Link>
             <Link onClick={()=>handleRuta("practicar")} to={`/lectura/${url.id}/practicar/${url.ejercicio}`} className={`buttons-units ${currentLink=="practicar"?"selected":""}`}>
-                <span className='unidad-span'>Unidad 2</span>
+                <span className='unidad-span'>Parte 2: {devolverTitulo()}</span>
                 <span className='title-span'>{`${devolverTitulo()}: ${url.id}`}</span>
             </Link>
         </div>
