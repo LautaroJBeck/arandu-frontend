@@ -535,6 +535,9 @@
 }
 .explicacion-container{
     max-width: 700px;
+    padding-top: 12px;
+    padding-right: 24px;
+    padding-left: 24px;
 }
 .vista-explicacion{
     margin-bottom: 25px;

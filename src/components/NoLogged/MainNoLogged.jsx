@@ -38,7 +38,7 @@ const MainNoLogged = () => {
           <br className='desaparecer'/>
           <br />
           <div className="primer-button-container">
-            <Link to="/registro">Registrarse</Link>
+            {localStorage.getItem("token")?<></>:<Link to="/registro">Registrarse</Link>}
             <Link to="/lectura/basico">Empezar a practicar</Link>
           </div>
           <br />
