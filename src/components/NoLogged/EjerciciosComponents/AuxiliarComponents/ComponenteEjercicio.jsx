@@ -20,24 +20,26 @@ const ComponenteEjercicio = ({selectedOption,handleSelection,ejerciciosData,
   }, [ejerciciosData])
   
 
-  const retornarTexto=()=>{
-    let arrays=texto.split("\n")
-    const exp = new RegExp(`(?<!")(${subrayado})(?!")`, "g");
-    if(texto.includes(subrayado)&&subrayado){
-      arrays=arrays.map(el=>{
-        let elModified=el.replace(exp,` <b class="subrayar-palabra">${subrayado}</b> `)
-        return elModified
-      })
+  const retornarTexto = () => {
+    let arrays = texto.split("\n");
+    const exp = new RegExp(`(?:^|[^"])(${subrayado})(?!")`, "g");
+    if (texto.includes(subrayado) && subrayado) {
+      arrays = arrays.map((el) => {
+        let elModified = el.replace(exp, function(match, p1) {
+          return match.replace(p1, ` <b class="subrayar-palabra">${p1}</b> `);
+        });
+        return elModified;
+      });
     }
-    return arrays.map((el,index)=>{
-      return(
+    return arrays.map((el, index) => {
+      return (
         <React.Fragment key={index}>
-          <p className="texto-pregunta" dangerouslySetInnerHTML={{ __html: el }}/>
+          <p className="texto-pregunta" dangerouslySetInnerHTML={{ __html: el }} />
           <br />
         </React.Fragment>
-      )
-    })
-  }
+      );
+    });
+  };
   const shuffleAnswers=()=>{
     let numerosAleatorios=[]
     let objetoFinal=[]
