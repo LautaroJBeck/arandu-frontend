@@ -38,6 +38,10 @@ const HeaderNoLogged = () => {
                           }
                         })
                         let jsonToken=await resToken.json()
+                        if(jsonToken.errors){
+                            localStorage.removeItem("token")
+                            location.reload()
+                        }
                         console.log(jsonToken)
                         setName(`${jsonToken.decoded.nombre.split(" ")[0]} ${jsonToken.decoded.apellido.split(" ")[0]}`)
                       }catch(err){
