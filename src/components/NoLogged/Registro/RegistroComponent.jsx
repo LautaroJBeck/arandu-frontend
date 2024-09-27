@@ -35,7 +35,10 @@ const RegistroComponent = () => {
             let res=await fetch(`${apiLink}/register`,{
                 method:"POST",
                 headers:{"Content-type":"application/json"},
-                body:JSON.stringify(values)
+                body:JSON.stringify({...values,
+                  apellido:values.apellido.trim(),
+                  nombre:values.nombre.trim(),
+                  correo:values.correo.trim()})
             })
             let json=await res.json();
             if(json.errors){
