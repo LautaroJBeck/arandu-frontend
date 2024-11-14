@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ConfettiContext from '../../../../context/ConfettiContext'
+import Lottie from "lottie-react"
+import lottieConfetti from "../../../../assets/svgs/confetti2.json"
 
 const ExamenFooter = ({selectedOption,checkEjercicio,respuestaCorrectaEncontrada,saltarEjercicio,
     numeroEjercicio,ejerciciosCorrectos,resetEjercicios,mostrarTodosEjercicios,skipHabilitado,
-    showIntroduccion,setShowIntroduccion
+    showIntroduccion,setShowIntroduccion,showButtonConfetti
 }) => {
   const {showConfetti,setShowConfetti}=useContext(ConfettiContext)
 
@@ -56,19 +58,30 @@ const ExamenFooter = ({selectedOption,checkEjercicio,respuestaCorrectaEncontrada
               Saltear ejercicio
             </button>
           )}
-          {respuestaCorrectaEncontrada ? (
-            <button 
-              onClick={saltarEjercicio}
-              className="ejercicios-siguiente-pregunta">
-              Siguiente pregunta
-            </button>
-          ) : (
-            <button 
-              onClick={checkEjercicio}
-              className={`ejercicios-comprobar-container ${selectedOption !== 0 ? "ejercicios-comprobar-container-active" : ""}`}>
-              Comprobar
-            </button>
-          )}
+          <div className='button-confetti-container'>
+            {respuestaCorrectaEncontrada ? (
+              <button 
+                onClick={saltarEjercicio}
+                className={`ejercicios-siguiente-pregunta`}>
+                Siguiente pregunta
+              </button>
+            ) : (
+              <>
+              <button 
+                onClick={checkEjercicio}
+                className={`ejercicios-comprobar-container ${selectedOption !== 0 ? "ejercicios-comprobar-container-active" : ""}`}>
+                Comprobar
+              </button>
+              </>
+            )}
+            {showButtonConfetti?<Lottie 
+            loop={false} 
+            style={{position:"absolute",pointerEvents:"none",
+              bottom:"0px",
+              
+           }}
+            animationData={lottieConfetti}/>:<></>}
+          </div>
         </>
       ) : (
         <Link 

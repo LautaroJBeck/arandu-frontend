@@ -20,6 +20,7 @@ const EjerciciosComponent = ({url,setShowCorrectModal,setShowIncorrectModal,auth
   const [firstTry,setFirstTry]=useState(true)
   const [skipHabilitado,setSkipHabilitado]=useState(true)
   const [cantidadCorrectos, setCantidadCorrectos] = useState(0)
+  const [showButtonConfetti, setShowButtonConfetti]=useState(false)
   const [loader,setLoader]=useState(null)
 
   const {showConfetti,setShowConfetti}=useContext(ConfettiContext)
@@ -60,6 +61,7 @@ const EjerciciosComponent = ({url,setShowCorrectModal,setShowIncorrectModal,auth
   }
 
   const saltarEjercicio=()=>{
+    setShowButtonConfetti(false)
     setShowCorrectModal(false)
     setSkipHabilitado(true)
     if(respuestaCorrectaEncontrada){
@@ -121,6 +123,7 @@ const EjerciciosComponent = ({url,setShowCorrectModal,setShowIncorrectModal,auth
         new Audio(correctAudio).play()
         setShowAnswers(objetoTemplate)
         setRespuestaCorrectaEncontrada(true)
+        setShowButtonConfetti(true)
       }else{
         setFirstTry(false)
         handleIncorrectModal()
@@ -193,6 +196,7 @@ const EjerciciosComponent = ({url,setShowCorrectModal,setShowIncorrectModal,auth
         resetEjercicios={resetEjercicios}
         mostrarTodosEjercicios={mostrarTodosEjercicios}
         skipHabilitado={skipHabilitado}
+        showButtonConfetti={showButtonConfetti}
         />
        
     </div>

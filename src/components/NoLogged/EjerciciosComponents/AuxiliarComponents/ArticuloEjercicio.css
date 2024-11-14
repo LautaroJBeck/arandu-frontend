@@ -7,7 +7,6 @@
     align-items: center;
     flex-direction: column;
     margin-left: 400px;
-    position: relative;
 }
 .ejercicios-header{
     height:5rem;
@@ -169,7 +168,7 @@
 }
 .ejercicios-siguiente-pregunta{
     height:40px;
-    width:180px;
+    width:165px;
     background-color: var(--verde);
     cursor: pointer;
     color:#fff;
@@ -177,6 +176,12 @@
     border-radius: 6px;
     font-size: 16px;
     border:none;
+}
+.button-confetti-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .ejercicios-redirigir-menu{
     display:flex;

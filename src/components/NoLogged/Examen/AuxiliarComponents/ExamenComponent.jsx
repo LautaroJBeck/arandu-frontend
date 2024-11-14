@@ -25,6 +25,7 @@ const ExamenComponent = ({setShowModal,setShowIncorrectModal,authorizeNext,
     const {showConfetti,setShowConfetti}=useContext(ConfettiContext) //10
     const [showIntroduccion, setShowIntroduccion]=useState(true)//11
     const [loader,setLoader]=useState(null)
+    const [showButtonConfetti, setShowButtonConfetti]=useState(false)
     //3,4,5,7,12
     const defaultAnswers={
         "1":0,
@@ -54,6 +55,7 @@ const ExamenComponent = ({setShowModal,setShowIncorrectModal,authorizeNext,
     location.reload()
   }
   const saltarEjercicio=()=>{
+    setShowButtonConfetti(false)
     setShowModal(false)
     setSkipHabilitado(true)
     if(respuestaCorrectaEncontrada){
@@ -113,6 +115,7 @@ const ExamenComponent = ({setShowModal,setShowIncorrectModal,authorizeNext,
         new Audio(correctAudio).play()
         setShowAnswers(objetoTemplate)
         setRespuestaCorrectaEncontrada(true)
+        setShowButtonConfetti(true)
       }else{
         setFirstTry(false)
         handleIncorrectModal()
@@ -202,6 +205,7 @@ const ExamenComponent = ({setShowModal,setShowIncorrectModal,authorizeNext,
         skipHabilitado={skipHabilitado}
         showIntroduccion={showIntroduccion}
         setShowIntroduccion={setShowIntroduccion}
+        showButtonConfetti={showButtonConfetti}
         />  
     </div>
   )

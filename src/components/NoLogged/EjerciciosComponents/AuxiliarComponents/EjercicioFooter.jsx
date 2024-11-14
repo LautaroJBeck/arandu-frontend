@@ -1,13 +1,14 @@
 import React, { useContext} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ConfettiContext from '../../../../context/ConfettiContext'
-
+import Lottie from "lottie-react"
+import lottieConfetti from "../../../../assets/svgs/confetti2.json"
 const EjercicioFooter = ({selectedOption,checkEjercicio,respuestaCorrectaEncontrada,saltarEjercicio,
-    numeroEjercicio,ejerciciosCorrectos,resetEjercicios,mostrarTodosEjercicios,skipHabilitado
+    numeroEjercicio,ejerciciosCorrectos,resetEjercicios,mostrarTodosEjercicios,skipHabilitado, showButtonConfetti
 }) => {
   const url=useParams()
   const {showConfetti,setShowConfetti}=useContext(ConfettiContext)
-
+  
   return (
     <div className="ejercicios-form">
         <div className="orden-ejercicios">
@@ -48,22 +49,32 @@ const EjercicioFooter = ({selectedOption,checkEjercicio,respuestaCorrectaEncontr
               Saltear ejercicio
             </button>
           )}
-          {respuestaCorrectaEncontrada ? (
-            <button 
-              onClick={saltarEjercicio}
-              className="ejercicios-siguiente-pregunta">
-              Siguiente pregunta
-            </button>
-          ) : (
-            <>
-            <button 
-              onClick={checkEjercicio}
-              className={`ejercicios-comprobar-container ${selectedOption !== 0 ? "ejercicios-comprobar-container-active" : ""}`}>
-              Comprobar
-            </button>
-
-            </>
-          )}
+          <div className='button-confetti-container'>
+            {respuestaCorrectaEncontrada ? (
+              <button 
+                onClick={saltarEjercicio}
+                className={`ejercicios-siguiente-pregunta`}>
+                Siguiente pregunta
+              </button>
+            ) : (
+              <>
+              <button 
+                onClick={checkEjercicio}
+                className={`ejercicios-comprobar-container ${selectedOption !== 0 ? "ejercicios-comprobar-container-active" : ""}`}>
+                Comprobar
+              </button>
+              </>
+            )}
+            {showButtonConfetti?<Lottie 
+            loop={false} 
+            style={{position:"absolute",pointerEvents:"none",
+              bottom:"0px",
+              
+           }}
+            animationData={lottieConfetti}/>:<></>}
+          </div>
+        
+        
         </>
       ) : (
         <Link 
