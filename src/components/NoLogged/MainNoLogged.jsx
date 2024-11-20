@@ -23,7 +23,7 @@ const MainNoLogged = () => {
       <div id="home" className="primer-slide">
         <div className='primer-text-container'>
           <div className="h2-container">
-            <h2>Mejorar tu capacidad de lectura y escritura te garantiza un mejor futuro!</h2>
+            <h2>¡Mejorar tu capacidad de lectura y escritura te garantiza un mejor futuro!</h2>
           </div>
           <div className="primer-bandera-paraguay">
             <div className='cuadrado-rojo'></div>
@@ -31,7 +31,7 @@ const MainNoLogged = () => {
             <div className='cuadrado-azul'></div>
           </div>
           <div className="primer-text-parrafos-container">
-            <p>Arandu es una aplicación paraguaya sin fines de lucro que busca disminuir el <b>analfabetismo funcional</b></p>
+            <p>Arandu es una plataforma educativa paraguaya diseñada para combatir el analfabetismo funcional.</p>
             <br />
             <p>Construye buenas habilidades de <Link to="/lectura/fundamentos" className="primer-text-link">escritura y lectura</Link> usando Arandu!</p>
           </div>
@@ -69,7 +69,7 @@ const MainNoLogged = () => {
         <div className="segundo-beneficios">
           <img loading="lazy" src={img_profesor} alt="Profesor" />
           <h4>Aprendizaje personalizado</h4>
-          <p>Los estudiantes practican a su propio ritmo. Arandu ofrece ejercicios de distintos niveles para todos los estudiantes </p>
+          <p>Cada estudiante avanza a su propio ritmo. Arandu adapta ejercicios de distintos niveles para atender las necesidades de todos.</p>
         </div>
         <div className="segundo-beneficios">
           <img loading="lazy" src={img_alumnos} alt="Alumnos y profesor" />
@@ -105,7 +105,7 @@ const MainNoLogged = () => {
           <h4>Nuestra misión</h4>
           <p className="tercer-p tercer-lema">"Un salón de clases dentro de cada dispositivo"</p>
           <p className='tercer-p'>
-            Arandu busca desarrollar buenas habilidades de comprensión lectora y escritura en los paraguayos. Con Arandu, queremos contribuir a garantizar las mismas oportunidades a todos los paraguayos a través de la tecnología.
+          En Arandu, nuestra misión es fortalecer las habilidades de lectura y escritura en Paraguay. Creemos que la tecnología puede garantizar igualdad de oportunidades educativas para todos, transformando vidas a través del aprendizaje.
           </p>
           <Link to="/lectura/basico">Empezar a aprender</Link>
         </div>
