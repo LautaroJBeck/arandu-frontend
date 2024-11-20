@@ -7,12 +7,14 @@ import ScoreContext from '../../../../context/ScoreContext'
 import apiLink from '../../../../helpers/apiLink'
 import Loader from '../../../Loader/Loader'
 import tildeMinuscula from '../../../../helpers/tildeMinuscula'
+import RachaOff from '../AuxiliarComponents/RachaOff'
+import RachaOn from '../AuxiliarComponents/RachaOn'
 const VistaNiveles = ({url}) => {
 
     const {logged,setLogged}=useContext(LoginContext)
     const {score,setScore}=useContext(ScoreContext)
     const [loader,setLoader]=useState(null)
-
+    const [racha,setRacha]=useState(null)
     useEffect(() => {
         const funcionEjecutar=async()=>{
             setLoader(true)
@@ -26,7 +28,6 @@ const VistaNiveles = ({url}) => {
                 }
               })
               let jsonToken=await resToken.json()
-              console.log(jsonToken)
               let res=await fetch(`${apiLink}/scores/${jsonToken.decoded.id}`,{
                   method:"GET",
                   headers:{"Content-type":"application/json",},
@@ -35,7 +36,12 @@ const VistaNiveles = ({url}) => {
               if(!json.hasOwnProperty("basico")){
                 localStorage.removeItem("token")
               }
-              console.log(json)
+              let resRacha=await fetch(`${apiLink}/rachas/corto/${jsonToken.decoded.id}`,{
+                method:"GET",
+                headers:{"Content-type":"application/json",}
+              })
+              let jsonRacha=await resRacha.json()
+              setRacha(jsonRacha)
               setLogged(jsonToken.decoded)
               setScore(json)
             }catch(err){
@@ -63,7 +69,6 @@ const VistaNiveles = ({url}) => {
     
     const devolverAprendizaje=()=>{
         if(score){
-            console.log(score)
             let {central,conexiones,contexto,estructura,
                 inferencias,significado,textuales
             }=score[url]
@@ -76,7 +81,6 @@ const VistaNiveles = ({url}) => {
     }
     const handleRedirect=(el)=>{
         window.location.href=`/lectura/${url}/practicar/${el[0]}`
-        console.log(el,url)
     }
     const devolverIconos=()=>{
         let titulos={
@@ -201,6 +205,12 @@ const VistaNiveles = ({url}) => {
             </div>
             }       
         </div>
+        {racha?
+            <>
+            {racha.duracionRacha&&racha.cantidadEjerciciosHoy>=12?<RachaOn racha={racha}/>:<RachaOff racha={racha}/>}
+            </>
+        :<></>
+        }
         <div className='examen-unidad-container'>
             <div>
                 <h4>Examen de unidad: {tildeMinuscula(url)}</h4>

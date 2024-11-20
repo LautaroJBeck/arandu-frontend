@@ -5,6 +5,7 @@ import CerrarCuenta from './ContentComponents/CerrarCuenta'
 import MiAprendizaje from './ContentComponents/MiAprendizaje'
 import MisProfesores from './ContentComponents/MisRelaciones/MisProfesores'
 import MisEstudiantes from './ContentComponents/MisRelaciones/MisEstudiantes'
+import MiActividad from './ContentComponents/MiActividad'
 
 const ContentPerfil = ({id}) => {
   const returnContent=()=>{
@@ -20,6 +21,8 @@ const ContentPerfil = ({id}) => {
       return <MisProfesores/>
     }else if(id=="mis-estudiantes"){
       return <MisEstudiantes/>
+    }else if(id=="actividad"){
+      return <MiActividad/>
     }
   }
   return (

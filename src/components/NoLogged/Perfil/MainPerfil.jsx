@@ -29,12 +29,15 @@ const MainPerfil = () => {
               setNombre(`${jsonToken.decoded.nombre.split(" ")[0]} ${jsonToken.decoded.apellido.split(" ")[0]}`)
               setLetters(`${jsonToken.decoded.nombre.split(" ")[0][0]+jsonToken.decoded.apellido.split(" ")[0][0]}`)
             }catch(err){
-              console.log(err)
             }
       }
       getNombre()
   }
   }, [])
+  useEffect(() => {
+    handleRuta(id)
+  }, [id])
+  
   const handleRolLink=()=>{
     if(rol=="estudiante"){
       return <Link 
@@ -66,7 +69,14 @@ const MainPerfil = () => {
                 <Link onClick={()=>handleRuta("aprendizaje")} 
                 to="/perfil/aprendizaje" 
                 className={`perfil-section ${currentRuta=="aprendizaje"?"seleccionado":""}`}>Mi aprendizaje</Link>
+
+                <Link onClick={()=>handleRuta("actividad")} 
+                to="/perfil/actividad" 
+                className={`perfil-section ${currentRuta=="actividad"?"seleccionado":""}`}>Mi actividad</Link>
+                
                 {rol&&handleRolLink()}
+            
+
                 <Link onClick={()=>handleRuta("seguridad")} 
                 to="/perfil/seguridad" 
                 className={`perfil-section ${currentRuta=="seguridad"?"seleccionado":""}`}>Seguridad de la cuenta</Link>

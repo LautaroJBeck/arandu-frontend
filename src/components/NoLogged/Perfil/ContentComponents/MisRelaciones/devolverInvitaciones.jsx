@@ -10,7 +10,6 @@ const devolverInvitaciones=(focusInvitaciones,pageInvitaciones,setPageInvitacion
       if(pageInvitaciones.max!=(pageInvitaciones.number/5)+1) setPageInvitaciones({...pageInvitaciones,number:pageInvitaciones.number+5})
     }
     const removeInvitacion=async(el)=>{
-      console.log(el)
       let res=await fetch(`${apiLink}/relaciones/aceptar`,{
         method:"POST",
         headers:{"Content-type":"application/json"},
@@ -21,7 +20,6 @@ const devolverInvitaciones=(focusInvitaciones,pageInvitaciones,setPageInvitacion
         })
         })
       let json=await res.json()
-      console.log(json)
       if(json.msg){
         localStorage.setItem("perfil-cambios",JSON.stringify({
             show:true,

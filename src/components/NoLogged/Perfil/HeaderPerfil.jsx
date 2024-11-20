@@ -12,6 +12,11 @@ const HeaderPerfil = ({id}) => {
                 <h4>Mi Aprendizaje</h4>
                 <p>Mira el desempeño que has tenido en tus ultimos examenes</p>
             </>
+        }else if(id=="actividad"){
+            return <>
+                <h4>Mi actividad</h4>
+                <p>Mira la constancia que tuviste aprendiendo en el último año</p>
+            </>
         }else if(id=="cerrar"){
             return <>
                 <h4>Cerrar Cuenta</h4>

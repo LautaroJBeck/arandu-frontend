@@ -67,9 +67,10 @@ const EjercicioFooter = ({selectedOption,checkEjercicio,respuestaCorrectaEncontr
             )}
             {showButtonConfetti?<Lottie 
             loop={false} 
+            height={500}
+            width={500}
             style={{position:"absolute",pointerEvents:"none",
-              bottom:"0px",
-              
+              bottom:"5px"
            }}
             animationData={lottieConfetti}/>:<></>}
           </div>

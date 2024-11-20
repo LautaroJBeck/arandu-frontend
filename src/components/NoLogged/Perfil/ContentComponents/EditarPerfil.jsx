@@ -39,14 +39,12 @@ const EditarPerfil = () => {
               modifiedValues[el]=modifiedValues[el].trim()
             }
           })
-          console.log(modifiedValues)
           let res1=await fetch(`${apiLink}/register/${formValues.id}`,{
             method:"PUT",
             headers:{"Content-type":"application/json"},
             body:JSON.stringify({...modifiedValues,originalCorreo:userValues.correo})
           })
           let json1=await res1.json();
-          console.log(json1)
         if(json1.errors){
             if(typeof json1.errors[0]=="object"){
                 setError(json1.errors[0].msg)

@@ -42,7 +42,6 @@ const HeaderNoLogged = () => {
                             localStorage.removeItem("token")
                             location.reload()
                         }
-                        console.log(jsonToken)
                         setName(`${jsonToken.decoded.nombre.split(" ")[0]} ${jsonToken.decoded.apellido.split(" ")[0]}`)
                       }catch(err){
                       }
@@ -130,6 +129,7 @@ const HeaderNoLogged = () => {
                 className="fa-solid fa-user">
                     <ul className={`menu-links ${showMenu ? "menu-links-show" : ""}`}>
                         <li><Link className="link-perfil" to="/perfil/aprendizaje">Mi aprendizaje</Link></li>
+                        <li><Link className="link-perfil" to="/perfil/actividad">Mi actividad</Link></li>
                         <li><Link className="link-perfil" to="/perfil/editar-perfil">Mi perfil</Link></li>
                         <li><Link className="link-perfil" to="/perfil/seguridad">Seguridad</Link></li>
                         <li><button 

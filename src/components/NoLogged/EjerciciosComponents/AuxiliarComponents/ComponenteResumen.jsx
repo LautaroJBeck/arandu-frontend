@@ -10,6 +10,7 @@ const ComponenteResumen = ({ejerciciosCorrectos,cantidadCorrectos,setCantidadCor
   const [antiguoPuntaje,setAntiguoPuntaje]=useState(0)
   const [puntajesTotales,setPuntajesTotales]=useState()
   const [loader,setLoader]=useState(null)
+  const [rachaCreada,setRachaCreadea]=useState(null)
   const {showConfetti,setShowConfetti}=useContext(ConfettiContext)
 
   const url=useParams()
@@ -40,12 +41,18 @@ const ComponenteResumen = ({ejerciciosCorrectos,cantidadCorrectos,setCantidadCor
       }
       //Colocar el nuevo puntaje
       setCantidadCorrectos(cantidadTrue)
-
-      await fetch(`${apiLink}/scores/${json.nivel_id}/${url.ejercicio}`,{
+      //Modificar este
+      let rachaRes=await fetch(`${apiLink}/scores/${json.nivel_id}/${url.ejercicio}`,{
         method:"PUT",
         headers:{"Content-type":"application/json"},
-        body:JSON.stringify({nuevoPuntaje:(cantidadTrue*25)})
+        body:JSON.stringify({
+          user_id:jsonToken.decoded.id,
+          nuevoPuntaje:(cantidadTrue*25)})
       })
+      let rachaJson=await rachaRes.json()
+      if(rachaJson.rachaCreada){
+        setRachaCreadea(rachaJson.rachaCreada)
+      }
       setNuevoPuntaje(cantidadTrue*25)
 
       //Obtener los puntajes totales
@@ -154,6 +161,14 @@ const ComponenteResumen = ({ejerciciosCorrectos,cantidadCorrectos,setCantidadCor
     {loader?
     <Loader/>
       :<div className="resumen-componente-container">
+      {/*<div class="racha-container">
+          <div class="background-fill"></div>
+          <div class="text">
+            ¡Felicidades! Extendiste tu racha
+            <br />
+            <span>1 día de racha <span class="fire-icon">🔥</span></span>
+          </div>
+        </div>*/}
       <div className="puntajes-generales-container">
         <div className="puntajes-progreso-container">
           <span><b>Aprendizaje de unidad: {puntajesTotales && devolverAprendizaje() }%</b></span>
@@ -166,6 +181,7 @@ const ComponenteResumen = ({ejerciciosCorrectos,cantidadCorrectos,setCantidadCor
           {puntajesTotales&&devolverIconos()}
         </div>
       </div>
+
       <div className="puntajes-seccion-container">
         {devolverMensajes()}
         

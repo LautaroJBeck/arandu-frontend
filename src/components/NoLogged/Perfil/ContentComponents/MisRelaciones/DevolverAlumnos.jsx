@@ -1,6 +1,5 @@
-import apiLink from "../../../../../helpers/apiLink"
 import nombreApellido from "../../../../../helpers/nombreApellido"
-const DevolverAlumnos=({focusAlumnos,pageAlumnos,setPageAlumnos,setVerAlumno})=>{
+const DevolverAlumnos=({focusAlumnos,pageAlumnos,setPageAlumnos,setVerAlumno,setVerHistorial})=>{
 
     const handleRetrocederAlumnos=()=>{
         if(pageAlumnos.number!=0) setPageAlumnos({...pageAlumnos,number:pageAlumnos.number-5})
@@ -8,11 +7,11 @@ const DevolverAlumnos=({focusAlumnos,pageAlumnos,setPageAlumnos,setVerAlumno})=>
     const handleAvanzarAlumnos=()=>{
         if(pageAlumnos.max!=(pageAlumnos.number/5)+1) setPageAlumnos({...pageAlumnos,number:pageAlumnos.number+5})
     }
-    const handleVerExamenesAlumno=async(el)=>{
-      setVerAlumno({mostrar:true,id:el.alumno_id})
+    const handleVerExamenesAlumno=(el)=>{
+      setVerAlumno({mostrar:true,id:el.alumno_id,nombre:el.nombre_alumno,apellido:el.apellido_alumno})
     }
-    const removerAlumno=()=>{
-
+    const handleVerHistorialAlumno=(el)=>{
+      setVerHistorial({mostrar:true,id:el.alumno_id,nombre:el.nombre_alumno,apellido:el.apellido_alumno})
     }
     const devolverAlumnos=()=>{
       if(focusAlumnos.length>0){
@@ -27,7 +26,8 @@ const DevolverAlumnos=({focusAlumnos,pageAlumnos,setPageAlumnos,setVerAlumno})=>
                 <span className='span-correo'>{el.correo_alumno}</span>
               </div>
               <div className="examenes-button-container">
-                <button className='invitacion-aceptar'onClick={()=>handleVerExamenesAlumno(el)}>Ver examenes</button>
+                <button className='invitacion-aceptar'onClick={()=>handleVerExamenesAlumno(el)}>Examenes</button>
+                <button className='ver-racha'onClick={()=>handleVerHistorialAlumno(el)}>Actividad</button>
             </div>
             </div>
           })

@@ -106,11 +106,11 @@
     flex-direction: column;
     align-items: center;
     padding: 24px;
+    width:100%;
 }
 .perfil-content p{
     margin-bottom: 16px;
     margin-top: 16px;
-
 }
 .perfil-container label{
     font-size: 16px;
@@ -521,6 +521,114 @@
     text-align: start;
     
 }
+.ver-racha{
+    background-color:var(--verde);
+    border:none;
+    color:var(--blanco);
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 6px;
+}
+.calendars-container {
+    max-width: 550px;
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    scroll-behavior: smooth; /* Para un desplazamiento suave */
+    border:2px solid rgb(229,229,229);
+    border-radius: 16px;
+    margin-top:16px;
+}
+
+.slider-content {
+    display: flex; /* Organiza los calendarios en fila horizontal */
+    flex-direction: row-reverse;
+    width: 100%; /* Cada calendario ocupará todo el contenedor */
+    transform: translateX(0%); /* Controla el desplazamiento inicial */
+    transition: transform 0.5s ease-in-out; /* Añade animación para deslizamiento */
+}
+.calendars-navigation-bar{
+    width:100%;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    top:18px;
+    padding:0px 16px;
+}
+.calendar-container{
+    width:100%;
+    background-color: #ffffff;
+    padding:16px;
+    flex: 0 0 100%; /* Asegura que cada calendario ocupe 100% del ancho */
+    max-width: 100%; /* Se adapta al contenedor */
+    box-sizing: border-box;
+}
+.month-container{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    margin-bottom: 16px;
+}
+.month-container h4{
+    color:rgb(119,119,119);
+}
+.nav-btn{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    row-gap: 12px;
+    text-align: center;
+    justify-items: center;
+    padding: 0 16px; /* Asegura que los bordes no se corten */
+}
+.day {
+    font-weight: bold;
+    color: var(--letra-racha-off);
+    text-transform: uppercase;
+    font-size: 16px;
+    width:100%;
+    height:100%;
+    line-height: 40px;
+
+}
+.date {
+    line-height: 40px;
+    color: rgb(175,175,175);
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.date:empty {
+    background: none;
+    pointer-events: none;
+}
+.current-day{
+    border-radius: 100%;
+    color:rgb(119,119,119);
+    background-color: rgb(215,215,215)
+}
+.racha-day{
+    color:#ffffff;
+    background-color: var(--fondo-racha-on);
+    border-radius: 100%;
+}
+@media only screen and (max-width: 850px){
+}
 @media only screen and (max-width: 768px) {
     .perfil-container{
         flex-direction: column;
@@ -548,5 +656,11 @@
     }
     .invitacion-button-container {
         flex-direction: column;
+    }
+}
+@media only screen and (max-width: 415px){
+    .date {
+        width:25px;
+        height:25px;
     }
 }

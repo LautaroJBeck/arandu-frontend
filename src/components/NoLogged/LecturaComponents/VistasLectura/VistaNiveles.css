@@ -47,6 +47,95 @@
     background-color: var(--verde);
     border-radius: 50px;
 }
+.racha-container-off{
+    max-width: 500px;
+    border:1px solid rgb(33, 36, 44, 0.1);
+    padding:32px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: var(--fondo-racha-off);
+    border-radius: 4px;
+}
+.racha-container-on{
+    max-width: 500px;
+    border:1px solid rgb(33, 36, 44, 0.1);
+    padding:32px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: var(--fondo-racha-on);
+    border-radius: 4px;
+}
+.informacion-racha{
+    display:flex;
+    margin-bottom: 16px;
+}
+.informacion-racha-texto{
+    width:100%;
+    max-width:320px;
+    margin-right: 32px;
+}
+.duracion-racha{
+    color:var(--letra-racha-off2);
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+.duracion-racha-on{
+    color:#ffffff;
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+.racha-sugerencia{
+    color:var(--letra-racha-off);
+    font-weight: 700;
+    line-height: 24px;
+}
+.racha-sugerencia-on{
+    color:#ffffff;
+    font-weight: 700;
+    line-height: 24px;
+}
+.informacion-racha-icono img{
+    width:80px
+}
+.fire-off{
+    color:var(--color-racha-off);
+    font-size: 90px;
+    width:75px;
+}
+.calendario-racha{
+    background-color: #ffffff;
+    padding:16px;
+    max-width: 432px;
+    width:100%;
+    border-radius: 6px;
+    display:flex;
+    justify-content: space-between;
+}
+.day-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.title-day-container{
+    color:var(--letra-racha-off);
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+.title-day-on{
+    color: var(--fondo-racha-on);
+}
+.circle-off{
+    height:35px;
+    width: 35px;
+    border-radius: 100%;
+    background-color:#e5e5e5;
+}
 .examen-unidad-container{
     width:100%;
     background-color: rgb(255,255,255);

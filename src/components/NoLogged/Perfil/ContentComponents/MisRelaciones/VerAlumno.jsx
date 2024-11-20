@@ -7,15 +7,15 @@ import MostrarGeneral from '../MostrarGeneral';
 import dayjs from 'dayjs';
 import 'dayjs/locale/es';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import nombreApellido from '../../../../../helpers/nombreApellido';
 dayjs.extend(relativeTime)
 dayjs.locale("es")
-const VerAlumno = ({id,setVerAlumno}) => {
+const VerAlumno = ({id,setVerAlumno,nombre,apellido}) => {
     const [examenes,setExamenes]=useState([])
     const [focusExamen,setFocusExamen]=useState([])
     const [page,setPages]=useState({number:0,max:0})
     const [verExamen,setVerExamen]=useState()
     const [loader,setLoader]=useState(null)
-
     useEffect(() => {
         const peticion=async()=>{
             setLoader(true)
@@ -24,7 +24,6 @@ const VerAlumno = ({id,setVerAlumno}) => {
                 headers:{"Content-type":"application/json",}
             })
             let jsonExamen=await resExamen.json()
-            console.log(jsonExamen)
             setPages({...page,max:Math.ceil(jsonExamen.listaExamenes.length/5)})
             setExamenes(jsonExamen.listaExamenes.sort((a,b)=>b.examen_id-a.examen_id))
             setFocusExamen(jsonExamen.listaExamenes.slice(0,5))
@@ -73,20 +72,11 @@ const VerAlumno = ({id,setVerAlumno}) => {
                 ]
             })
         }else{
-            console.log(el.examen_id,el.nivel)
             let resExamen=await fetch(`${apiLink}/examen/puntaje/${el.examen_id}/${el.nivel}`,{
                 method:"GET",
                 headers:{"Content-type":"application/json",}
             })
             let jsonExamen=await resExamen.json()
-            console.log({
-                fecha:el.fecha,
-                total:el.total,
-                nivel:jsonExamen[0].nivel,
-                decodificacion:jsonExamen[0].decodificacion,
-                inferencial:jsonExamen[0].inferencial,
-                literal:jsonExamen[0].literal
-            })
             setVerExamen({
                 fecha:el.fecha,
                 total:el.total,
@@ -142,7 +132,7 @@ const VerAlumno = ({id,setVerAlumno}) => {
         {loader?<Loader/>:verExamen?<>
             {mostrarExamenSeleccionado()}
         </>:examenes.length>0?<>
-        <h4 className='titulo-examenes'>Examenes de Lautaro Beck</h4>
+        <h4 className='titulo-examenes'>Examenes de {nombreApellido(nombre,apellido)}</h4>
         <label htmlFor="">Historial de examenes</label>
         <div className="examenes-container">
             {focusExamen&&devolverExamenes()}
@@ -163,7 +153,7 @@ const VerAlumno = ({id,setVerAlumno}) => {
         </div>
         <div className='button-changes-container'>
             <button 
-            onClick={()=>setVerAlumno({mostrar:false,id:null})}
+            onClick={()=>setVerAlumno({mostrar:false,id:null,nombre:"",apellido:""})}
             className='button-changes changes-active'>Volver</button>
         </div>
     </>:<>

@@ -76,8 +76,7 @@ const ExamenFooter = ({selectedOption,checkEjercicio,respuestaCorrectaEncontrada
             )}
             {showButtonConfetti?<Lottie 
             loop={false} 
-            style={{position:"absolute",pointerEvents:"none",
-              bottom:"0px",
+            style={{position:"absolute",pointerEvents:"none",bottom:"5px"
               
            }}
             animationData={lottieConfetti}/>:<></>}

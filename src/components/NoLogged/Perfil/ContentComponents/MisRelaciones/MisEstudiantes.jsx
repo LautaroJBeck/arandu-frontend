@@ -6,6 +6,7 @@ import devolverInvitaciones from './devolverInvitaciones'
 import devolverAlumnos from './DevolverAlumnos'
 import DevolverAlumnos from './DevolverAlumnos'
 import VerAlumno from './VerAlumno'
+import VerHistorial from './VerHistorial'
 
 const MisEstudiantes = () => {
     const [alumnos,setAlumnos]=useState([])
@@ -22,9 +23,8 @@ const MisEstudiantes = () => {
     const [focusAlumnos,setFocusAlumnos]=useState([])
     const [pageAlumnos,setPageAlumnos]=useState({number:0,max:0})
 
-    const [verAlumno,setVerAlumno]=useState({mostrar:false,id:null})
-    const [examenesAlumno,setExamenesAlumno]=useState(null)
-
+    const [verAlumno,setVerAlumno]=useState({mostrar:false,id:null,nombre:"",apellido:""})
+    const [verHistorial,setVerHistorial]=useState({mostrar:false,id:null,nombre:"",apellido:""})
     useEffect(() => {
         document.title="Mis Estudiantes | Arandu"
         const peticion=async()=>{
@@ -90,7 +90,6 @@ const MisEstudiantes = () => {
             })
           })
         let json=await res.json()
-        console.log(json)
         if(json.errors){
             if(typeof json.errors[0]=="object"){
                 setError(json.errors[0].msg)
@@ -110,10 +109,20 @@ const MisEstudiantes = () => {
   return (
     <>
     {loader?<Loader/>:verAlumno.mostrar?
-    <VerAlumno 
+    <VerAlumno
+    nombre={verAlumno.nombre}
+    apellido={verAlumno.apellido}
     id={verAlumno.id}
     setVerAlumno={setVerAlumno}
     />
+    :verHistorial.mostrar?
+    <VerHistorial
+    nombre={verHistorial.nombre}
+    apellido={verHistorial.apellido}
+    id={verHistorial.id}
+    setVerHistorial={setVerHistorial}
+    />
+    
     :<>
         <label htmlFor="">Enviar solicitud de seguimiento a alumno</label>
         <input 
@@ -132,6 +141,7 @@ const MisEstudiantes = () => {
         pageAlumnos={pageAlumnos}
         setPageAlumnos={setPageAlumnos}
         setVerAlumno={setVerAlumno}
+        setVerHistorial={setVerHistorial}
         />}
 
     </>}

@@ -33,7 +33,6 @@ const MiAprendizaje = () => {
                 headers:{"Content-type":"application/json",}
               })
               let jsonExamen=await resExamen.json()
-              console.log(jsonExamen)
               setPages({...page,max:Math.ceil(jsonExamen.listaExamenes.length/5)})
               setExamenes(jsonExamen.listaExamenes.sort((a,b)=>b.examen_id-a.examen_id))
               setFocusExamen(jsonExamen.listaExamenes.slice(0,5))
@@ -85,20 +84,12 @@ const MiAprendizaje = () => {
                 ]
             })
         }else{
-            console.log(el.examen_id,el.nivel)
             let resExamen=await fetch(`${apiLink}/examen/puntaje/${el.examen_id}/${el.nivel}`,{
                 method:"GET",
                 headers:{"Content-type":"application/json",}
             })
             let jsonExamen=await resExamen.json()
-            console.log({
-                fecha:el.fecha,
-                total:el.total,
-                nivel:jsonExamen[0].nivel,
-                decodificacion:jsonExamen[0].decodificacion,
-                inferencial:jsonExamen[0].inferencial,
-                literal:jsonExamen[0].literal
-            })
+
             setVerExamen({
                 fecha:el.fecha,
                 total:el.total,

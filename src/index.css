@@ -31,6 +31,14 @@
     --gris-oscuro:rgb(33, 36, 44);
     --celeste:#0dc8f0;
 
+    --fondo-racha-off:#fff5d2;
+    --letra-racha-off:#837f6e;
+    --letra-racha-off2:#e39f32;
+    --color-racha-off:#f7e2b3;
+
+    --fondo-racha-on:rgb(255, 150, 0);
+    --letra-racha-on:#ffffff;
+    
     --blanco-oscuro:rgb(248,248,248);
     --negro-claro:rgb(38,38,38);
 

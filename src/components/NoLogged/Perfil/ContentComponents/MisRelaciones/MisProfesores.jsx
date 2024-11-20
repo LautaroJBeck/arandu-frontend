@@ -30,13 +30,11 @@ const MisProfesores = () => {
             }
           })
           let jsonToken=await resToken.json()
-          console.log(jsonToken)
           let resSolicitudes=await fetch(`${apiLink}/relaciones/solicitudes/${jsonToken.decoded.correo}`,{
             method:"GET",
             headers:{"Content-type":"application/json",}
           })
           let jsonSolicitudes=await resSolicitudes.json()
-          console.log(jsonSolicitudes)
           let resProfesores=await fetch(`${apiLink}/relaciones/profesores/${jsonToken.decoded.id}`,{
             method:"GET",
             headers:{"Content-type":"application/json",}
@@ -84,7 +82,6 @@ const MisProfesores = () => {
           })
         })
         let json=await res.json();
-        console.log(json)
         if(json.msg){
           if(respuesta){
             localStorage.setItem("perfil-cambios",JSON.stringify({
@@ -155,7 +152,6 @@ const MisProfesores = () => {
     },[pageProfesores])
 
     const removerProfesor=async(el)=>{
-      console.log(el)
       let res=await fetch(`${apiLink}/relaciones/profesores`,{
         method:"DELETE",
         headers:{"Content-type":"application/json"},
